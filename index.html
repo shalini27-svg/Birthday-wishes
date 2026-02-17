@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Surbhi 💕</title>
+
+<style>
+body{
+margin:0;
+padding:0;
+background:linear-gradient(135deg,#ff9ecf,#ffd6e8);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+font-family: 'Segoe UI', sans-serif;
+overflow:hidden;
+}
+
+/* Container */
+.container{
+text-align:center;
+position:relative;
+width:95%;
+max-width:900px;
+}
+
+/* Bigger Card */
+.card{
+background:white;
+width:100%;
+max-width:750px;
+padding:40px 35px;
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.3);
+margin:auto;
+display:none;
+animation:fadeIn 1.5s ease forwards;
+}
+
+.card h1{
+color:#e91e63;
+font-size:32px;
+margin-bottom:20px;
+}
+
+.card p{
+color:#222;
+font-size:18px;
+line-height:1.7;
+white-space:pre-line;
+}
+
+/* Open Button */
+.open-btn{
+padding:14px 30px;
+font-size:18px;
+background:#e91e63;
+color:white;
+border:none;
+border-radius:30px;
+cursor:pointer;
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+transition:0.3s;
+}
+
+.open-btn:hover{
+background:#c2185b;
+transform:scale(1.05);
+}
+
+/* Cake */
+.cake{
+margin-top:20px;
+font-size:60px;
+cursor:pointer;
+}
+
+.smoke{
+position:absolute;
+width:8px;
+height:40px;
+background:rgba(200,200,200,0.4);
+border-radius:50%;
+animation:smoke 2s ease-out forwards;
+}
+
+@keyframes smoke{
+0%{opacity:1; transform:translateY(0);}
+100%{opacity:0; transform:translateY(-60px);}
+}
+
+/* Flying Hearts */
+.heart{
+position:absolute;
+color:#ff3366;
+font-size:20px;
+animation:fly 5s linear infinite;
+}
+
+@keyframes fly{
+0%{transform:translateY(0) scale(1);}
+100%{transform:translateY(-600px) scale(1.5);}
+}
+
+/* Fade Animation */
+@keyframes fadeIn{
+from{opacity:0; transform:scale(0.8);}
+to{opacity:1; transform:scale(1);}
+}
+
+/* Responsive */
+@media(max-width:600px){
+.card{
+padding:25px 20px;
+}
+.card h1{
+font-size:24px;
+}
+.card p{
+font-size:16px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<button class="open-btn" onclick="openCard()">Tap to Open Card 💌</button>
+
+<div class="card" id="card">
+<h1>Happy Birthday Surbhi 🎂💕</h1>
+
+<p>
+On your special day, Surbhi, I just want you to know how deeply you are appreciated and cared for.
+
+You are not just important — you are someone who makes life feel softer, brighter, and more meaningful.
+
+Your smile has a way of calming storms, and your presence brings warmth that words can never fully describe.
+
+I truly hope this year brings you success in everything you work for, strength when things feel heavy, and happiness in even the smallest moments.
+
+No matter where life takes you, my good wishes will always walk beside you.
+
+Happy Birthday once again. You deserve the most beautiful things in this world. 💕
+
+- from Shalini
+</p>
+
+<div class="cake" onclick="blowCandle()">🎂</div>
+
+</div>
+
+</div>
+
+<audio id="music" src="your-music.mp3"></audio>
+
+<script>
+function openCard(){
+document.querySelector('.open-btn').style.display="none";
+document.getElementById('card').style.display="block";
+document.getElementById('music').play();
+startHearts();
+}
+
+function blowCandle(){
+let smoke=document.createElement("div");
+smoke.classList.add("smoke");
+smoke.style.left="50%";
+smoke.style.top="55%";
+document.body.appendChild(smoke);
+setTimeout(()=>{smoke.remove();},2000);
+}
+
+function startHearts(){
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"%";
+heart.style.top="90%";
+heart.style.fontSize=(20+Math.random()*20)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},5000);
+},500);
+}
+</script>
+
+</body>
+</html>
